@@ -108,7 +108,7 @@ export default function ChatWidget() {
             {/* floating bubble */}
             <button
                 onClick={() => setOpen(!open)}
-                className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition-all hover:scale-110"
+                className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition-all hover:scale-110 z-50"
                 title="Chat with us"
             >
                 💬
@@ -116,7 +116,7 @@ export default function ChatWidget() {
 
             {/* panel */}
             {open && (
-                <div className="fixed bottom-20 right-4 w-80 max-h-[70vh] flex flex-col bg-white shadow-xl rounded-xl border overflow-hidden">
+                <div className="fixed bottom-20 right-4 w-[calc(100vw-2rem)] sm:w-96 max-h-[70vh] sm:max-h-[80vh] flex flex-col bg-white shadow-xl rounded-xl border overflow-hidden z-50">
 
                     {/* header */}
                     <div className="flex justify-between items-center bg-black text-white px-3 py-2">
@@ -143,7 +143,7 @@ export default function ChatWidget() {
                     <div className="flex-1 overflow-y-auto px-3 py-2 space-y-2">
                         {messages.map((m, i) => (
                             <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
-                                <div className={`px-3 py-2 rounded-xl text-sm ${m.role === "user" ? "bg-black text-white" : "bg-gray-200 text-black"}`}>
+                                <div className={`px-3 py-2 rounded-xl text-sm sm:text-base max-w-[85%] ${m.role === "user" ? "bg-black text-white" : "bg-gray-200 text-black"}`}>
                                     {m.content}
                                 </div>
                             </div>
@@ -154,10 +154,10 @@ export default function ChatWidget() {
 
                         {showForm && (
                             <form onSubmit={submitContact} className="bg-gray-50 p-3 border rounded space-y-2">
-                                <input className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500" placeholder="Name" value={cName} onChange={(e)=>setCName(e.target.value)} required/>
-                                <input className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500" placeholder="Email" type="email" value={cEmail} onChange={(e)=>setCEmail(e.target.value)} required/>
-                                <textarea className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500 h-20" placeholder="Message" value={cMsg} onChange={(e)=>setCMsg(e.target.value)} required/>
-                                <button className="w-full bg-black text-white py-1 rounded text-sm font-semibold hover:bg-gray-800">Send</button>
+                                <input className="w-full border px-3 py-2 text-sm sm:text-base text-black bg-white placeholder-gray-500 rounded" placeholder="Name" value={cName} onChange={(e)=>setCName(e.target.value)} required/>
+                                <input className="w-full border px-3 py-2 text-sm sm:text-base text-black bg-white placeholder-gray-500 rounded" placeholder="Email" type="email" value={cEmail} onChange={(e)=>setCEmail(e.target.value)} required/>
+                                <textarea className="w-full border px-3 py-2 text-sm sm:text-base text-black bg-white placeholder-gray-500 h-20 rounded" placeholder="Message" value={cMsg} onChange={(e)=>setCMsg(e.target.value)} required/>
+                                <button className="w-full bg-black text-white py-2 rounded text-sm sm:text-base font-semibold hover:bg-gray-800">Send</button>
                             </form>
                         )}
                     </div>
@@ -167,10 +167,10 @@ export default function ChatWidget() {
                         <input
                             value={input}
                             onChange={(e)=>setInput(e.target.value)}
-                            className="flex-1 border rounded-full px-3 py-1 text-sm text-black bg-white placeholder-gray-500"
+                            className="flex-1 border rounded-full px-3 py-2 text-sm sm:text-base text-black bg-white placeholder-gray-500"
                             placeholder="Type here..."
                         />
-                        <button className="px-3 py-1 bg-black text-white rounded-full text-sm hover:bg-gray-800">➤</button>
+                        <button className="px-4 py-2 bg-black text-white rounded-full text-sm sm:text-base hover:bg-gray-800">➤</button>
                     </form>
                 </div>
             )}
