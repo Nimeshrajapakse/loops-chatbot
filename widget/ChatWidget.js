@@ -108,7 +108,8 @@ export default function ChatWidget() {
             {/* floating bubble */}
             <button
                 onClick={() => setOpen(!open)}
-                className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-black text-white shadow-lg"
+                className="fixed bottom-4 right-4 w-14 h-14 rounded-full bg-black text-white shadow-lg hover:bg-gray-800 transition-all hover:scale-110"
+                title="Chat with us"
             >
                 💬
             </button>
@@ -121,23 +122,21 @@ export default function ChatWidget() {
                     <div className="flex justify-between items-center bg-black text-white px-3 py-2">
                         <div>
                             <div className="text-sm font-semibold">Loops Assistant</div>
-                            <div className="text-[10px] text-white">EN / සිංහල support</div>
+                            <div className="text-[10px] text-white opacity-90">EN / සිංහල support</div>
                         </div>
-                        <button onClick={resetChat} className="text-xs px-2 py-1 bg-white/20 rounded">
+                        <button onClick={resetChat} className="text-xs px-3 py-1 bg-white/20 rounded hover:bg-white/30 transition-colors font-medium">
                             Reset
                         </button>
                     </div>
 
                     {/* language */}
-                    <div className="flex gap-1 bg-gray-50 border-b px-3 py-1 text-xs text-black">
+                    <div className="flex gap-2 bg-gray-50 border-b px-3 py-2 text-xs text-black">
                         <button onClick={() => setLangMode("auto")}
-                                className={langMode === "auto" ? "font-bold" : ""}>Auto</button>
-                        <span className="text-gray-400">|</span>
+                                className={`px-2 py-1 rounded transition-colors ${langMode === "auto" ? "bg-black text-white font-bold" : "hover:bg-gray-200"}`}>Auto</button>
                         <button onClick={() => setLangMode("en")}
-                                className={langMode === "en" ? "font-bold" : ""}>EN</button>
-                        <span className="text-gray-400">|</span>
+                                className={`px-2 py-1 rounded transition-colors ${langMode === "en" ? "bg-black text-white font-bold" : "hover:bg-gray-200"}`}>EN</button>
                         <button onClick={() => setLangMode("si")}
-                                className={langMode === "si" ? "font-bold" : ""}>SI</button>
+                                className={`px-2 py-1 rounded transition-colors ${langMode === "si" ? "bg-black text-white font-bold" : "hover:bg-gray-200"}`}>SI</button>
                     </div>
 
                     {/* messages */}
@@ -155,10 +154,10 @@ export default function ChatWidget() {
 
                         {showForm && (
                             <form onSubmit={submitContact} className="bg-gray-50 p-3 border rounded space-y-2">
-                                <input className="w-full border px-2 py-1 text-sm" placeholder="Name" value={cName} onChange={(e)=>setCName(e.target.value)} required/>
-                                <input className="w-full border px-2 py-1 text-sm" placeholder="Email" value={cEmail} onChange={(e)=>setCEmail(e.target.value)} required/>
-                                <textarea className="w-full border px-2 py-1 text-sm" placeholder="Message" value={cMsg} onChange={(e)=>setCMsg(e.target.value)} required/>
-                                <button className="w-full bg-black text-white py-1 rounded text-sm">Send</button>
+                                <input className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500" placeholder="Name" value={cName} onChange={(e)=>setCName(e.target.value)} required/>
+                                <input className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500" placeholder="Email" type="email" value={cEmail} onChange={(e)=>setCEmail(e.target.value)} required/>
+                                <textarea className="w-full border px-2 py-1 text-sm text-black bg-white placeholder-gray-500 h-20" placeholder="Message" value={cMsg} onChange={(e)=>setCMsg(e.target.value)} required/>
+                                <button className="w-full bg-black text-white py-1 rounded text-sm font-semibold hover:bg-gray-800">Send</button>
                             </form>
                         )}
                     </div>
@@ -168,10 +167,10 @@ export default function ChatWidget() {
                         <input
                             value={input}
                             onChange={(e)=>setInput(e.target.value)}
-                            className="flex-1 border rounded-full px-3 py-1 text-sm"
+                            className="flex-1 border rounded-full px-3 py-1 text-sm text-black bg-white placeholder-gray-500"
                             placeholder="Type here..."
                         />
-                        <button className="px-3 py-1 bg-black text-white rounded-full text-sm">➤</button>
+                        <button className="px-3 py-1 bg-black text-white rounded-full text-sm hover:bg-gray-800">➤</button>
                     </form>
                 </div>
             )}
