@@ -4,13 +4,23 @@ A lightweight, bilingual (English & Sinhala) chatbot widget for Loops Integrated
 
 ## Features
 
-- ✅ **Embeddable Widget**: Floating chat bubble with polished UI
+### Chatbot Widget
+- ✅ **Embeddable Widget**: Floating chat bubble with modern dark UI
 - ✅ **Bilingual Support**: Auto-detects and responds in English or Sinhala
 - ✅ **Manual Language Toggle**: Switch between Auto/EN/SI modes
 - ✅ **Secure Backend**: OpenAI API key secured server-side
 - ✅ **Conversation Context**: Retains last 10 messages
 - ✅ **Off-topic Fallback**: Redirects off-topic queries to contact form
 - ✅ **Brand Knowledge**: Pre-loaded with Loops Integrated information
+
+### Landing Page
+- ✅ **Professional Dark Theme**: Custom dark design with blue accent (#0099FF)
+- ✅ **Sticky Navigation**: Header with smooth scroll navigation
+- ✅ **Hero Section**: Bold headline with call-to-action buttons
+- ✅ **Services Showcase**: 4 service cards with hover effects
+- ✅ **Contact Section**: Direct email and phone links
+- ✅ **Fully Responsive**: Mobile-first design that works on all devices
+- ✅ **Smooth Animations**: Message slide-ins and interactive elements
 
 ## Tech Stack
 
@@ -192,19 +202,32 @@ export function isSinhala(text) {
 2. **Environment variables**
    - Add `OPENAI_API_KEY` in Netlify dashboard
 
+## Design & UI
+
+The application features a professional dark theme with a carefully chosen color palette:
+
+- **Primary Background**: `#111111` - Almost black for main container
+- **Secondary Background**: `#1A1A1A` - Dark grey for cards and messages
+- **Accent Color**: `#0099FF` - Bright azure blue for CTAs and highlights
+- **Hover State**: `#33B8FF` - Lighter blue for interactive elements
+- **Borders/Dividers**: `#2A2A2A` - Subtle grey for visual separation
+- **Text**: `#FFFFFF` - White for maximum contrast
+
+This modern, custom-designed aesthetic avoids generic AI template looks and showcases a premium digital agency experience.
+
 ## Features Demo
 
 ### 1. English Conversation
-The chatbot responds to English queries about Loops Integrated's services.
+The chatbot responds to English queries about Loops Integrated's services with contextual awareness.
 
 ### 2. Sinhala Support
-Automatically detects Sinhala text and responds in Sinhala.
+Automatically detects Sinhala text (both Unicode script and romanized) and responds in Sinhala.
 
 ### 3. Language Toggle
-Switch between Auto/EN/SI modes for forced language preference.
+Switch between Auto/EN/SI modes for forced language preference, highlighted with blue accent.
 
 ### 4. Off-topic Handling
-When users ask unrelated questions, the bot collects contact information via a form.
+When users ask unrelated questions, the bot politely redirects and presents a contact form with dark theme styling.
 
 ## Development
 
