@@ -31,10 +31,14 @@ export default function ChatWidget() {
         setLoading(true);
 
         let lang = langMode;
-        if (langMode === "auto") lang = isSinhala(msg.content) ? "si" : "en";
+        if (langMode === "auto") {
+            const detectedSinhala = isSinhala(msg.content);
+            lang = detectedSinhala ? "si" : "en";
+            console.log("Auto-detect:", { message: msg.content, detectedSinhala, language: lang });
+        }
 
         try {
-            console.log("Sending message to API...");
+            console.log("Sending message to API with language:", lang);
             const res = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
